@@ -30,8 +30,9 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="es">
       <head />
-      <body className="min-h-screen bg-background font-mono antialiased">
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+      {/* agregando dark , text-foreground y bg-background en el className para que se aplique el tema dark por defecto */}
+      <body className="dark text-foreground bg-background  min-h-screen font-mono antialiased ">
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark"}}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
