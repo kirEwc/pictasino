@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
-import { Providers } from "./providers";
+import { Metadata } from "next";
 
 import { Navbar } from "@/components/navbar";
+import { TabBar } from "@/components/ui/TabBar";
+import { FixedSidebar } from "@/components/ui/FixedSidebar";
 
 export const metadata: Metadata = {
   title: {
@@ -11,16 +12,11 @@ export const metadata: Metadata = {
   },
   description: `Make a beautiful site made in airdev and deldev`,
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/logo.png",
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    // { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-};
+
 
 export default function RootLayout({
   children,
@@ -31,18 +27,29 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="es">
       <head />
       {/* agregando dark , text-foreground y bg-background en el className para que se aplique el tema dark por defecto */}
-      <body className="dark text-foreground bg-background  min-h-screen font-mono antialiased ">
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark"}}>
-          <div className="relative flex flex-col h-screen">
+      <body className="dark text-foreground  bg-gray-800 min-h-screen font-serif antialiased  ">
+          <div className=" flex flex-col">
             <Navbar />
+
+
+            <div className="flex flex-row min-h-screen">
+            <FixedSidebar />
+
+            {/* contenedor del Children junto con el  */}
+          <div className="flex flex-col flex-grow ">
+
+
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <h2>Footer</h2>
+            <footer className="w-full h-96 bg-gray-900 ">
+
+              <h1>Hello Fotter</h1>
             </footer>
           </div>
-        </Providers>
+            </div>
+              <TabBar />
+          </div>
       </body>
     </html>
   );
