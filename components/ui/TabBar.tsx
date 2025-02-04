@@ -3,7 +3,7 @@ import Sidebar from "./MovilSidebar"
 
 export const TabBar = () => {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 w-full grid grid-cols-4 grid-rows-1 gap-3 justify-center items-center bg-gray-950 rounded-t-2xl p-2 text-white font-serif text-lg">
+    <div className="lg:hidden fixed bottom-0 left-0 w-full grid grid-cols-4 grid-rows-1 gap-3 justify-center items-center bg-gray-950 rounded-t-2xl p-2 text-white font-serif text-lg">
         <Sidebar />
         <Link className="flex flex-col justify-center items-center" href="/">
             <CupIcon className="w-6 h-6" />

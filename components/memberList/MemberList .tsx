@@ -53,8 +53,8 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
           <tr>
             <th scope="col" className="px-6 py-3 ">Juego</th>
             <th scope="col" className="px-6 py-3">Jugador</th>
-            <th scope="col" className="px-6 py-3 hidden sm:table-cell">Apuesta</th>
-            <th scope="col" className="px-6 py-3 hidden sm:table-cell">Multiplicador</th>
+            <th scope="col" className="px-6 py-3 hidden md:table-cell">Apuesta</th>
+            <th scope="col" className="px-6 py-3 hidden lg:table-cell">Multiplicador</th>
             <th scope="col" className="px-6 py-3">Ganancia</th>
           </tr>
         </thead>
@@ -74,13 +74,13 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
                 </div>
               </td>
 
-              <td className="px-6 py-4 whitespace-nowrap text-left">
+              <td className="px-6 py-4 whitespace-nowrap text-left hidden md:table-cell">
                 <div className="flex items-center gap-2">
                   <StreamlineBagDollarSolid className="w-5 h-5 text-green-400" /> {member.bet}
                 </div>
               </td>
 
-              <td className="px-6 py-4 whitespace-nowrap text-left">
+              <td className="px-6 py-4 whitespace-nowrap text-left hidden lg:table-cell">
                 <div className="flex items-center gap-2">
                   <StreamlineGraphBarIncrease className="w-5 h-5 text-green-400" /> {'x'+member.multiplier}
                 </div>

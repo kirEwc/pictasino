@@ -22,9 +22,9 @@ const MovilSidebar = () => {
 
     return(
         <>
-            <button className="bg-transparent flex flex-col justify-center items-center" onClick={() => handleOpen()}>
-                <MenuIcon className="w-6 h-6 md:hidden"/>
-               <h2 className="md:hidden"> Menu</h2>
+            <button className="bg-transparent lg:hidden flex flex-col justify-center items-center" onClick={() => handleOpen()}>
+                <MenuIcon className="w-6 h-6 "/>
+               <h2 className=""> Menu</h2>
             </button>
        <Drawer defaultOpen={true} backdrop={'blur'} isOpen={isOpen} size="xs" placement="left" onClose={onClose}>
                 <DrawerContent>
