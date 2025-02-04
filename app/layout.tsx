@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="es">
       <head />
-      <body className="min-h-screen bg-background font-mono antialiased">
+      <body className="min-h-screen  font-mono antialiased ">
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
