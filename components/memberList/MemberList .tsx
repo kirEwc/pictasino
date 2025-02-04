@@ -16,7 +16,6 @@ type MemberListProps = {
 };
 
 const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
-  const [randomValues, setRandomValues] = useState<string[]>([]);
   const [visibleMembers, setVisibleMembers] = useState<Member[]>([]);
 
   useEffect(() => {
@@ -48,8 +47,8 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
   }, [initialMembers]);
 
   return (
-    <div className="relative overflow-x-auto rounded-2xl">
-      <table className="w-full text-sm text-left text-white bg-[#101720] border border-gray-700">
+    <div className="rounded-2xl">
+      <table className="w-full text-sm text-left text-white bg-[#101720] border border-gray-700 rounded-2xl">
         <thead className="text-xs uppercase bg-gray-800 border-b border-gray-700">
           <tr>
             <th scope="col" className="px-6 py-3 ">Juego</th>

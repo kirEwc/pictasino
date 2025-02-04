@@ -30,7 +30,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto mt-2 group ">
+    <div className=" w-full max-w-2xl mx-auto mt-2 group ">
       <div className="h-60 md:h-80 lg:h-85 overflow-hidden relative">
         <Image
           src={images[currentIndex]}

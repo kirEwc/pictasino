@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
-import { Providers } from "./providers";
+import { Metadata } from "next";
 
 import { Navbar } from "@/components/navbar";
+import { TabBar } from "@/components/ui/TabBar";
+import { FixedSidebar } from "@/components/ui/FixedSidebar";
 
 export const metadata: Metadata = {
   title: {
@@ -11,15 +12,8 @@ export const metadata: Metadata = {
   },
   description: `Make a beautiful site made in airdev and deldev`,
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/logo.png",
   },
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
 };
 
 export default function RootLayout({
@@ -30,18 +24,32 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="es">
       <head />
-      <body className="min-h-screen  font-mono antialiased ">
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <h2>Footer</h2>
-            </footer>
+      <body className="dark text-foreground bg-gray-800 min-h-screen font-serif antialiased">
+        {/* Flex layout for full height */}
+        <div className="relative flex flex-col min-h-screen">
+          {/* Navbar */}
+          <Navbar />
+
+          <div className="flex flex-row flex-grow">
+            {/* Sidebar */}
+            <FixedSidebar />
+
+            {/* Main content area */}
+            <div className="flex flex-col flex-grow">
+              <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+                {children}
+              </main>
+
+              {/* Footer */}
+              <footer className="w-full h-96 bg-gray-900">
+                <h1>Hello Footer</h1>
+              </footer>
+            </div>
           </div>
-        </Providers>
+
+          {/* TabBar */}
+          <TabBar />
+        </div>
       </body>
     </html>
   );
