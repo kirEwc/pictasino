@@ -18,7 +18,7 @@ export const FixedSidebar = () => {
 
 
   return (
-    <div className='hidden md:flex flex-col fixed min-h-screen pt-6 gap-3 w-52  bg-gray-950 items-center '>
+    <div className='hidden md:flex flex-col relative min-h-screen pt-6 gap-3 w-52  bg-gray-950 items-center '>
         {menuSidebar.map((item, index) => (
             <Link 
                 key={index} 
