@@ -51,43 +51,43 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
       <table className="w-full text-sm text-left text-white bg-[#101720] border border-gray-700 rounded-2xl">
         <thead className="text-xs uppercase bg-gray-800 border-b border-gray-700">
           <tr>
-            <th scope="col" className="px-6 py-3 ">Juego</th>
-            <th scope="col" className="px-6 py-3">Jugador</th>
-            <th scope="col" className="px-6 py-3 hidden md:table-cell">Apuesta</th>
-            <th scope="col" className="px-6 py-3 hidden lg:table-cell">Multiplicador</th>
-            <th scope="col" className="px-6 py-3">Ganancia</th>
+            <th scope="col" className="px-2 md:px-6 py-3 ">Juego</th>
+            <th scope="col" className="px-2 md:px-6 py-3">Jugador</th>
+            <th scope="col" className="px-2 md:px-6 py-3 hidden md:table-cell">Apuesta</th>
+            <th scope="col" className="px-2 md:px-6 py-3 hidden lg:table-cell">Multiplicador</th>
+            <th scope="col" className="px-2 md:px-6 py-3">Ganancia</th>
           </tr>
         </thead>
         <tbody>
           {visibleMembers.map((member, index) => (
             <tr key={index} className="border-b border-gray-700 bg-gray-800">
 
-              <td className="px-6 py-4 whitespace-nowrap text-left">
+              <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left">
                 <div className="flex items-center gap-2">
                   <Game className="w-5 h-5 text-blue-400" /> {member.game}
                 </div>
               </td>
 
-              <td className="px-6 py-4 whitespace-nowrap text-left">
+              <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left">
                 <div className="flex items-center gap-2">
                   <RiUser5Fill className="w-5 h-5 text-green-400" /> {member.player}
                 </div>
               </td>
 
-              <td className="px-6 py-4 whitespace-nowrap text-left hidden md:table-cell">
+              <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left hidden md:table-cell">
                 <div className="flex items-center gap-2">
                   <StreamlineBagDollarSolid className="w-5 h-5 text-green-400" /> {member.bet}
                 </div>
               </td>
 
-              <td className="px-6 py-4 whitespace-nowrap text-left hidden lg:table-cell">
+              <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left hidden lg:table-cell">
                 <div className="flex items-center gap-2">
                   <StreamlineGraphBarIncrease className="w-5 h-5 text-green-400" /> {'x'+member.multiplier}
                 </div>
               </td>
 
               
-              <td className="px-6 py-4 whitespace-nowrap text-left">
+              <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left">
                 <div className="flex items-center gap-2">
                   <NotoTrophy className="w-5 h-5 text-green-400" />  {'$ ' + member.win}
                 </div>
