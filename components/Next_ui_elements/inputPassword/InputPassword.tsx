@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, InputProps } from '@nextui-org/react';
+import { Input, InputProps } from '@heroui/react';
 import { Password, WeuiEyesOffOutlined, WeuiEyesOnOutlined } from '@/icons/Icons';
 
 

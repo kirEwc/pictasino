@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, InputProps } from '@nextui-org/react';
+import { Input, InputProps } from '@heroui/react';
 
 interface NumberInputProps extends Omit<InputProps, 'type'> {
   name?: string;
