@@ -47,9 +47,10 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
   }, [initialMembers]);
 
   return (
-    <div className="rounded-2xl">
-      <table className="w-full text-sm text-left text-white bg-[#101720] border border-gray-700 rounded-2xl">
-        <thead className="text-xs uppercase bg-gray-800 border-b border-gray-700">
+    <div className="relative rounded-2xl">
+
+      <table className="w-full text-sm text-left text-white  border bg-[#101720] border-gray-700 ">
+        <thead className="text-xs uppercase  border-b border-gray-700">
           <tr>
             <th scope="col" className="px-2 md:px-6 py-3 ">Juego</th>
             <th scope="col" className="px-2 md:px-6 py-3">Jugador</th>
@@ -60,7 +61,7 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
         </thead>
         <tbody>
           {visibleMembers.map((member, index) => (
-            <tr key={index} className="border-b border-gray-700 bg-gray-800">
+            <tr key={index} className="border-b border-gray-700">
 
               <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left">
                 <div className="flex items-center gap-2">
