@@ -1,7 +1,7 @@
-import Carousel from "@/components/carousel/Carousel";
-import { images } from "@/components/carousel/ImagePath";
-import { members } from "@/components/memberList/members";
-import MemberList from "@/components/memberList/MemberList ";
+import Carousel from "@/components/my-components/carousel/Carousel";
+import { images } from "@/components/my-components/carousel/ImagePath";
+import { members } from "@/components/my-components/memberList/members";
+import MemberList from "@/components/my-components/memberList/MemberList ";
 import SportsCard from "@/components/SportsCard";
 
 

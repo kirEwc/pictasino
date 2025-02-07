@@ -1,24 +1,26 @@
 "use client"
 
 import { useRouter } from 'next/navigation';
-import React from 'react'  
+import React, { useState } from 'react'
 
 
-import { User } from '@/icons/Icons';
+import { GameIconsConfirmed, User } from '@/icons/Icons';
 
 import ButtonNext from '@/components/Next_ui_elements/button/ButtonNext';
 import InputEmail from '@/components/Next_ui_elements/inputEmail/InputEmail'
 
 import ApiRequest from '@/services/ApiRequest';
 import { validationRecoberyPassword } from '@/lib/validation/validationrecoberyPassword';
-import CustomLink from '@/components/link/Link';
+import CustomLink from '@/components/my-components/link/Link';
+import { AlertData } from '@/interfaces/alertData/AlertData';
+import { ReusableAlert } from '@/app/messages/reusableAlert/ReusableAlert';
 
 
 const RecoveryPassword = () => {
   const router = useRouter();
+  const [alert, setAlert] = useState<AlertData | null>(null);
 
-
-  const handleRecoveryPassword =async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleRecoveryPassword = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const { email } = Object.fromEntries(formData);
@@ -28,16 +30,19 @@ const RecoveryPassword = () => {
 
     if (!validatedFields.success) {
       const firstError = validatedFields.error.errors[0];
-      const messageError = String(firstError.message);
-      // ErrorMessage(messageError);
-    }if (validatedFields.success) {
+      setAlert({
+        title: "Error en el formulario",
+        description: firstError.message,
+        color: "danger",
+      });
 
+    } if (validatedFields.success) {
       try {
         const response = await ApiRequest({
           method: 'POST',
           url: 'https://eclipse-production-cfda.up.railway.app/api/User/ChangePassword',
           body: {
-            email: email,            
+            email: email,
           },
         });
 
@@ -49,7 +54,12 @@ const RecoveryPassword = () => {
           }
           router.push('/verifyCode');
         } else {
-          // ErrorMessage('Credenciales incorrectas');
+          setAlert({
+            title: "Error",
+            description: "Credenciales incorrectas",
+            color: "danger",
+          });
+
         }
 
       } catch (error) {
@@ -66,9 +76,21 @@ const RecoveryPassword = () => {
 
   return (
     <>
-      <div className="h-screen w-screen bg-[url('/images/fondo/1.webp')] bg-cover bg-center bg-no-repeat">
+      <div className="h-screen w-screen bg-[url('/images/images-auth/3.webp')] bg-cover bg-center bg-no-repeat">
+           {alert && (
+                     <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-72">
+                       <ReusableAlert
+                         title={alert.title}
+                         description={alert.description}
+                         color={alert.color}
+                         variant="faded"
+                         onClose={() => setAlert(null)} 
+                       />
+                     </div>
+                   )}       
+       
         <div className="flex justify-center items-center h-full ">
-          <div className="border border-t-small border-solid w-80 h-60 rounded-2xl bg-gradient-to-b from-blue-400 to-blue-700 ">
+          <div className="border border-t-small border-solid w-80 h-60 rounded-2xl bg-gradient-to-b from-purple-900 to-blue-700 ">
             <div className="flex justify-center mb-4 mt-4">
               <User className="text-5xl text-white opacity-90" />
             </div>
@@ -77,7 +99,7 @@ const RecoveryPassword = () => {
               <div className="flex items-center justify-center flex-grow flex-col">
                 <div className="mb-4 w-2/3">
                   <InputEmail
-                    name="email"                    
+                    name="email"
                   />
                 </div>
 
@@ -85,6 +107,7 @@ const RecoveryPassword = () => {
                   <ButtonNext
                     text="Confirmar"
                     type="submit"
+                    icon={<GameIconsConfirmed className="h-6 w-6" />}
                   />
                 </div>
 

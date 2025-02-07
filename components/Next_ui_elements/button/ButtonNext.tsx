@@ -16,7 +16,7 @@ const ButtonNext: React.FC<ButtonProps> = ({
   onClick, 
   type = 'button', 
   disabled = false, 
-  className = 'bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg w-full',
+  className="bg-gradient-to-tr from-[#f27121] via-[#e94057] to-[#8a2387] text-white shadow-lg w-full text-lg",
   icon,
   radius = 'full'
 }) => {

@@ -11,7 +11,7 @@ export default function MainLayout ({
 
     return(
 
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-gray-800">
           <Navbar />
           <div className="flex flex-row flex-1">
             <FixedSidebar />
