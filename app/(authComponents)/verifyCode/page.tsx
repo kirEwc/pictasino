@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-
-import ButtonNext from '@/components/Next_ui_elements/button/ButtonNext';
-import { GameIconsConfirmed, Number, User } from '@/icons/Icons';
-import ApiRequest from '@/services/ApiRequest';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
-import InputNumberNext from '@/components/Next_ui_elements/inputNumber/InputNumberNext';
-import { validationVerifyCode } from '@/lib/validation/validationVerifyCode';
-import CustomLink from '@/components/my-components/link/Link';
-import { AlertData } from '@/interfaces/alertData/AlertData';
-import { ReusableAlert } from '@/app/messages/reusableAlert/ReusableAlert';
+import ButtonNext from "@/components/Next_ui_elements/button/ButtonNext";
+import { GameIconsConfirmed, Number, User } from "@/icons/Icons";
+import ApiRequest from "@/services/ApiRequest";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import InputNumberNext from "@/components/Next_ui_elements/inputNumber/InputNumberNext";
+import { validationVerifyCode } from "@/lib/validation/validationVerifyCode";
+import CustomLink from "@/components/my-components/link/Link";
+import { AlertData } from "@/interfaces/alertData/AlertData";
+import { ReusableAlert } from "@/app/messages/reusableAlert/ReusableAlert";
 
 const VerifyCode = () => {
   const router = useRouter();
@@ -23,7 +22,7 @@ const VerifyCode = () => {
 
     const validatedFields = validationVerifyCode.safeParse({
       code: code,
-    })
+    });
 
     if (!validatedFields.success) {
       const firstError = validatedFields.error.errors[0];
@@ -33,16 +32,16 @@ const VerifyCode = () => {
         color: "danger",
       });
     } else {
-
       try {
         const response = await ApiRequest({
-          method: 'GET',
-          url: 'https://eclipse-production-cfda.up.railway.app/api/User/ConfirmChangeToken/' + code,
+          method: "GET",
+          url:
+            "https://eclipse-production-cfda.up.railway.app/api/User/ConfirmChangeToken/" +
+            code,
         });
 
-
         if (response.status === 200) {
-          router.push('/confirmPassword');
+          router.push("/confirmPassword");
         } else {
           setAlert({
             title: "Error",
@@ -50,12 +49,11 @@ const VerifyCode = () => {
             color: "danger",
           });
         }
-
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
-  }
+  };
 
   return (
     <>
@@ -82,9 +80,10 @@ const VerifyCode = () => {
                 <div className="mb-4 w-48">
                   <InputNumberNext
                     name="code"
-                    icon={<Number className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />}
+                    icon={
+                      <Number className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                    }
                   />
-
                 </div>
 
                 <div className="mt-3 w-48">
@@ -94,29 +93,18 @@ const VerifyCode = () => {
                     icon={<GameIconsConfirmed className="h-6 w-6" />}
                   />
                 </div>
-
               </div>
             </form>
 
             <div className="flex justify-between mt-4 mx-2">
-              <CustomLink
-                href="/"
-                text="Cancelar"
-                className="text-white"
-              />
-              <CustomLink
-                href="/login"
-                text="Login"
-                className="text-white"
-              />
+              <CustomLink href="/" text="Cancelar" className="text-white" />
+              <CustomLink href="/login" text="Login" className="text-white" />
             </div>
-
-
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default VerifyCode;

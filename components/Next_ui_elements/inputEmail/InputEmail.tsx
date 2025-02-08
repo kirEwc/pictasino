@@ -1,27 +1,29 @@
-import React from 'react';
-import { Input, InputProps } from '@heroui/react'
-import { Email } from '@/icons/Icons';
+import React from "react";
+import { Input, InputProps } from "@heroui/react";
+import { Email } from "@/icons/Icons";
 
-
-
-interface EmailInputProps extends Omit<InputProps, 'type'> {
+interface EmailInputProps extends Omit<InputProps, "type"> {
   name?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;  
-  
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputEmail: React.FC<EmailInputProps> = ({ name = 'email', onChange, className = '', ...props }) => {
+const InputEmail: React.FC<EmailInputProps> = ({
+  name = "email",
+  onChange,
+  className = "",
+  ...props
+}) => {
   return (
-    <Input      
-      name={name}    
-      onChange={onChange}  
+    <Input
+      name={name}
+      onChange={onChange}
       placeholder="email"
-      labelPlacement="outside"     
+      labelPlacement="outside"
       startContent={
         <Email className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
       }
       className={`max-w-xs ${className}`} // Permite agregar más clases con TailwindCSS
-      {...props}  // Pasamos el resto de las props
+      {...props} // Pasamos el resto de las props
     />
   );
 };

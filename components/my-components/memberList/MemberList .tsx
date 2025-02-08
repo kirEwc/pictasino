@@ -1,6 +1,12 @@
 "use client";
 
-import { Game, NotoTrophy, RiUser5Fill, StreamlineBagDollarSolid, StreamlineGraphBarIncrease } from "@/icons/Icons";
+import {
+  Game,
+  NotoTrophy,
+  RiUser5Fill,
+  StreamlineBagDollarSolid,
+  StreamlineGraphBarIncrease,
+} from "@/icons/Icons";
 import React, { useEffect, useState } from "react";
 
 type Member = {
@@ -19,8 +25,6 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
   const [visibleMembers, setVisibleMembers] = useState<Member[]>([]);
 
   useEffect(() => {
-
-
     // Muestra los primeros 5 miembros
     setVisibleMembers(initialMembers.slice(0, 5));
 
@@ -48,21 +52,29 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
 
   return (
     <div className="relative rounded-2xl">
-
       <table className="w-full text-sm text-left text-white  border bg-[#101720] border-gray-700 ">
         <thead className="text-xs uppercase  border-b border-gray-700">
           <tr>
-            <th scope="col" className="px-2 md:px-6 py-3 ">Juego</th>
-            <th scope="col" className="px-2 md:px-6 py-3">Jugador</th>
-            <th scope="col" className="px-2 md:px-6 py-3 hidden md:table-cell">Apuesta</th>
-            <th scope="col" className="px-2 md:px-6 py-3 hidden lg:table-cell">Multiplicador</th>
-            <th scope="col" className="px-2 md:px-6 py-3">Ganancia</th>
+            <th scope="col" className="px-2 md:px-6 py-3 ">
+              Juego
+            </th>
+            <th scope="col" className="px-2 md:px-6 py-3">
+              Jugador
+            </th>
+            <th scope="col" className="px-2 md:px-6 py-3 hidden md:table-cell">
+              Apuesta
+            </th>
+            <th scope="col" className="px-2 md:px-6 py-3 hidden lg:table-cell">
+              Multiplicador
+            </th>
+            <th scope="col" className="px-2 md:px-6 py-3">
+              Ganancia
+            </th>
           </tr>
         </thead>
         <tbody>
           {visibleMembers.map((member, index) => (
             <tr key={index} className="border-b border-gray-700">
-
               <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left">
                 <div className="flex items-center gap-2">
                   <Game className="w-5 h-5 text-blue-400" /> {member.game}
@@ -71,29 +83,31 @@ const MemberList: React.FC<MemberListProps> = ({ initialMembers }) => {
 
               <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left">
                 <div className="flex items-center gap-2">
-                  <RiUser5Fill className="w-5 h-5 text-green-400" /> {member.player}
+                  <RiUser5Fill className="w-5 h-5 text-green-400" />{" "}
+                  {member.player}
                 </div>
               </td>
 
               <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left hidden md:table-cell">
                 <div className="flex items-center gap-2">
-                  <StreamlineBagDollarSolid className="w-5 h-5 text-green-400" /> {member.bet}
+                  <StreamlineBagDollarSolid className="w-5 h-5 text-green-400" />{" "}
+                  {member.bet}
                 </div>
               </td>
 
               <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left hidden lg:table-cell">
                 <div className="flex items-center gap-2">
-                  <StreamlineGraphBarIncrease className="w-5 h-5 text-green-400" /> {'x'+member.multiplier}
+                  <StreamlineGraphBarIncrease className="w-5 h-5 text-green-400" />{" "}
+                  {"x" + member.multiplier}
                 </div>
               </td>
 
-              
               <td className="px-2 md:px-6 py-4 whitespace-nowrap text-left">
                 <div className="flex items-center gap-2">
-                  <NotoTrophy className="w-5 h-5 text-green-400" />  {'$ ' + member.win}
+                  <NotoTrophy className="w-5 h-5 text-green-400" />{" "}
+                  {"$ " + member.win}
                 </div>
-              </td>          
-
+              </td>
             </tr>
           ))}
         </tbody>

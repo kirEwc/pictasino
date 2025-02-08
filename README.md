@@ -1,4 +1,3 @@
-
 # 🎰 Pictasino
 
 Plataforma de juegos interactivos con componentes modernos.
@@ -10,35 +9,44 @@ Plataforma de juegos interactivos con componentes modernos.
 ## 🛠️ Instalación
 
 ### 1. Instalar Bun
+
 **Windows** (PowerShell):
+
 ```powershell
 powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
 **Linux/Mac**:
+
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
 ### 2. Instalar HeroUI CLI
+
 ```bash
 bun add heroui-cli -g
 ```
 
 ## 🚀 Ejecutar el proyecto
+
 ```bash
 bun run dev
 ```
+
 Servidor disponible en `localhost:3000`
 
 ## 🧩 Componentes Optimizados
+
 Usa solo lo que necesites:
+
 ```bash
 # Ejemplo para botones
 bun add @heroui/button
 ```
 
 📦 Componentes independientes:
+
 - `@heroui/button`
 - `@heroui/code`
 - `@heroui/input`
@@ -50,4 +58,5 @@ bun add @heroui/button
 - `@heroui/switch`
 
 ## ⚠️ Nota Importante
+
 Evita instalar el paquete completo `@heroui/react` si usas componentes individuales.

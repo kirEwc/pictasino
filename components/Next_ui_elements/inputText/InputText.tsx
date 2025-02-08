@@ -1,14 +1,19 @@
-import React from 'react';
-import { Input, InputProps } from '@heroui/react';
+import React from "react";
+import { Input, InputProps } from "@heroui/react";
 
-interface TextInputProps extends Omit<InputProps, 'type'> {
+interface TextInputProps extends Omit<InputProps, "type"> {
   name?: string;
   icon?: React.ReactNode; // Nueva prop para el icono
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  
 }
 
-const InputText: React.FC<TextInputProps> = ({ name = 'email', onChange, className = '', icon, ...props }) => {
+const InputText: React.FC<TextInputProps> = ({
+  name = "email",
+  onChange,
+  className = "",
+  icon,
+  ...props
+}) => {
   return (
     <Input
       name={name}
@@ -23,10 +28,9 @@ const InputText: React.FC<TextInputProps> = ({ name = 'email', onChange, classNa
         ) : null
       }
       className={`max-w-xs ${className}`} // Permite agregar más clases con TailwindCSS
-      {...props}  // Pasamos el resto de las props
+      {...props} // Pasamos el resto de las props
     />
   );
 };
 
 export default InputText;
-

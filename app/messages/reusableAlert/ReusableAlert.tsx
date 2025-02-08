@@ -4,7 +4,13 @@
 import React from "react";
 import { Alert } from "@heroui/react";
 
-export type AlertColor = "danger" | "success" | "warning" | "default" | "primary" | "secondary";
+export type AlertColor =
+  | "danger"
+  | "success"
+  | "warning"
+  | "default"
+  | "primary"
+  | "secondary";
 export type AlertVariant = "solid" | "faded" | "flat" | "bordered";
 
 interface ReusableAlertProps {

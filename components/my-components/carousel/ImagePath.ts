@@ -7,5 +7,5 @@ export const images = [
   "/images/images-carousel/7.webp",
   "/images/images-carousel/8.webp",
   "/images/images-carousel/9.webp",
-  "/images/images-carousel/10.webp",       
+  "/images/images-carousel/10.webp",
 ];

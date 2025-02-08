@@ -55,7 +55,6 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
           >
             ❯
           </button>
-
         </div>
       </div>
 
@@ -64,15 +63,15 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`h-3 w-3 rounded-full ${index === currentIndex
-              ? "bg-white opacity-1"
-              : "bg-white opacity-50"
-              }`}
+            className={`h-3 w-3 rounded-full ${
+              index === currentIndex
+                ? "bg-white opacity-1"
+                : "bg-white opacity-50"
+            }`}
           />
         ))}
       </div>
     </div>
-
   );
 };
 

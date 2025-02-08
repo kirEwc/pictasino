@@ -17,31 +17,28 @@ export default function Home() {
         className="flex flex-col lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-4 lg:w-full"
       >
         <div>
-        <SportsCard />
+          <SportsCard />
         </div>
 
         <div>
-        <SportsCard manchaColor="bg-blue-700" />
+          <SportsCard manchaColor="bg-blue-700" />
         </div>
-          
-        <div className="col-start-1 row-start-2">
-        <SportsCard manchaColor="bg-green-700" />
-        </div>
-          
-        <div className="col-start-2 row-start-2">
-        <SportsCard manchaColor="bg-red-700" />
-        </div>
-          
-        <div className="row-span-2 col-start-3 row-start-1">
-        <SportsCard manchaColor="bg-yellow-700" />
-        </div>
-          
 
+        <div className="col-start-1 row-start-2">
+          <SportsCard manchaColor="bg-green-700" />
+        </div>
+
+        <div className="col-start-2 row-start-2">
+          <SportsCard manchaColor="bg-red-700" />
+        </div>
+
+        <div className="row-span-2 col-start-3 row-start-1">
+          <SportsCard manchaColor="bg-yellow-700" />
+        </div>
       </section>
 
       <section id="tabla de miembros " className="w-full">
         <MemberList initialMembers={members} />
-
       </section>
     </div>
   );

@@ -1,26 +1,23 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
-import { GameIconsArchiveRegister, User } from '@/icons/Icons';
+import { GameIconsArchiveRegister, User } from "@/icons/Icons";
 
-import InputEmail from '@/components/Next_ui_elements/inputEmail/InputEmail';
-import InputPassword from '@/components/Next_ui_elements/inputPassword/InputPassword';
-import ButtonNext from '@/components/Next_ui_elements/button/ButtonNext';
+import InputEmail from "@/components/Next_ui_elements/inputEmail/InputEmail";
+import InputPassword from "@/components/Next_ui_elements/inputPassword/InputPassword";
+import ButtonNext from "@/components/Next_ui_elements/button/ButtonNext";
 
-import ApiRequest from '@/services/ApiRequest';
-import { validationRegister } from '@/lib/validation/validationRegister';
-import CustomLink from '@/components/my-components/link/Link';
-import { AlertData } from '@/interfaces/alertData/AlertData';
-import { ReusableAlert } from '@/app/messages/reusableAlert/ReusableAlert';
-
-
+import ApiRequest from "@/services/ApiRequest";
+import { validationRegister } from "@/lib/validation/validationRegister";
+import CustomLink from "@/components/my-components/link/Link";
+import { AlertData } from "@/interfaces/alertData/AlertData";
+import { ReusableAlert } from "@/app/messages/reusableAlert/ReusableAlert";
 
 const Register: React.FC = () => {
   const router = useRouter();
   const [alert, setAlert] = useState<AlertData | null>(null);
-
 
   const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,7 +29,7 @@ const Register: React.FC = () => {
       email: email,
       password: password,
       confirmPassword: confirmPassword,
-    })
+    });
 
     if (!validatedFields.success) {
       const firstError = validatedFields.error.errors[0];
@@ -44,8 +41,8 @@ const Register: React.FC = () => {
     } else {
       try {
         const response = await ApiRequest({
-          method: 'POST',
-          url: 'https://eclipse-production-cfda.up.railway.app/api/User/CrearUsuario',
+          method: "POST",
+          url: "https://eclipse-production-cfda.up.railway.app/api/User/CrearUsuario",
           body: {
             email: email,
             password: password,
@@ -54,23 +51,19 @@ const Register: React.FC = () => {
         });
 
         if (response.status === 200) {
-          router.push('/login');
+          router.push("/login");
         } else {
           setAlert({
             title: "Error ",
             description: "Registro fallido",
             color: "danger",
           });
-
         }
-
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-
     }
-
-  }
+  };
 
   return (
     <>
@@ -96,15 +89,11 @@ const Register: React.FC = () => {
             <form onSubmit={handleRegister}>
               <div className="flex items-center justify-center flex-grow flex-col">
                 <div className="mb-4 w-2/3">
-                  <InputEmail
-                    name="email"
-                  />
+                  <InputEmail name="email" />
                 </div>
 
                 <div className="w-2/3">
-                  <InputPassword
-                    name="password"
-                  />
+                  <InputPassword name="password" />
                 </div>
 
                 <div className="w-2/3 mt-4">
@@ -118,32 +107,21 @@ const Register: React.FC = () => {
                   <ButtonNext
                     text="Registrarse"
                     type="submit"
-                    icon={<GameIconsArchiveRegister className='h-6 w-6' />}
+                    icon={<GameIconsArchiveRegister className="h-6 w-6" />}
                   />
                 </div>
-
               </div>
             </form>
 
             <div className="flex justify-between mt-2 mx-2">
-              <CustomLink
-                href="/"
-                text="Cancelar"
-                className="text-white"
-              />
-              <CustomLink
-                href="/login"
-                text="Login"
-                className="text-white"
-              />
+              <CustomLink href="/" text="Cancelar" className="text-white" />
+              <CustomLink href="/login" text="Login" className="text-white" />
             </div>
-
-
           </div>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Register;

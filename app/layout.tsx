@@ -1,8 +1,6 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
 
-
-
 export const metadata: Metadata = {
   title: {
     default: "Pictasino",
@@ -23,9 +21,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="es">
       <head />
       <body className="dark text-foreground bg-gray-800 font-serif antialiased">
-      <main className="w-full">
-                {children}
-              </main>
+        <main className="w-full">{children}</main>
       </body>
     </html>
   );

@@ -14,7 +14,6 @@ import { setAuthCookie } from "@/app/actions/setAuthCookie";
 import { SolarLoginBold, User } from "@/icons/Icons";
 import ApiRequest from "@/services/ApiRequest";
 
-
 const Login: React.FC = () => {
   const router = useRouter();
   const [alert, setAlert] = useState<AlertData | null>(null);
@@ -22,7 +21,10 @@ const Login: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const { email, password } = Object.fromEntries(formData) as { email: string; password: string };
+    const { email, password } = Object.fromEntries(formData) as {
+      email: string;
+      password: string;
+    };
 
     const validatedFields = validationLogin.safeParse({ email, password });
     if (!validatedFields.success) {
@@ -56,7 +58,7 @@ const Login: React.FC = () => {
           color: "danger",
         });
       }
-    } catch (error) {      
+    } catch (error) {
       console.error(error);
     }
   };
@@ -71,7 +73,7 @@ const Login: React.FC = () => {
             description={alert.description}
             color={alert.color}
             variant="faded"
-            onClose={() => setAlert(null)} 
+            onClose={() => setAlert(null)}
           />
         </div>
       )}
@@ -93,14 +95,26 @@ const Login: React.FC = () => {
               </div>
 
               <div className="mt-3 w-2/3">
-                <ButtonNext text="Iniciar Sesión" type="submit" icon={<SolarLoginBold />} />
+                <ButtonNext
+                  text="Iniciar Sesión"
+                  type="submit"
+                  icon={<SolarLoginBold />}
+                />
               </div>
             </div>
           </form>
 
           <div className="flex justify-between mt-6 mx-2">
-            <CustomLink href="/recoveryPassword" text="Olvidaste la contraseña" className="text-white" />
-            <CustomLink href="/register" text="Regístrarse" className="text-white" />
+            <CustomLink
+              href="/recoveryPassword"
+              text="Olvidaste la contraseña"
+              className="text-white"
+            />
+            <CustomLink
+              href="/register"
+              text="Regístrarse"
+              className="text-white"
+            />
           </div>
         </div>
       </div>
