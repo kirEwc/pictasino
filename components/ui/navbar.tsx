@@ -2,6 +2,7 @@
 import { Navbar as HeroUINavbar, NavbarBrand } from "@heroui/navbar";
 import { Button } from "@heroui/react";
 import Image from "next/image";
+import AnimatedButton from "./BotonAnimado/AnimatedButton";
 
 export const Navbar = () => {
   return (
@@ -13,13 +14,7 @@ export const Navbar = () => {
        </NavbarBrand>
 
       <div>
-      <Button className=" mr-1 sm:mr-2 md:mr-3 font-serif" variant="bordered" color="secondary">
-          <h1 className="font-serif sm:block hidden">Iniciar Sección</h1>
-          <h1 className="font-serif sm:hidden block">Inic. Ses.</h1>
-        </Button>
-        <Button className="bg-purple-500 font-serif">
-          <h1 className="font-serif">Registrarse</h1>
-        </Button>
+        <AnimatedButton />
       </div>
     </HeroUINavbar>
   );
